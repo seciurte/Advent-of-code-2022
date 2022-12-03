@@ -21,9 +21,9 @@ PL_TO_RPS	= {
 }
 
 PL_TO_WDL	= {
-	"X": "win",
+	"X": "lose",
 	"Y": "draw",
-	"Z": "lose"
+	"Z": "win"
 }
 
 SCORES		= {
@@ -46,7 +46,10 @@ def getPlayerScore(op, pl) :
 
 def getPlayerScore_bonus(op, res) :
 
-	
+	for key in PL_TO_RPS.keys() :
+		if SCORES[PL_TO_WDL[res]] == (getPlayerScore(op, key)) - SCORES[PL_TO_RPS[key]] :
+			print("--- ", (getPlayerScore(op, key)) - SCORES[PL_TO_RPS[key]])
+			return getPlayerScore(op, key)
 
 def day2() :
 
@@ -59,7 +62,9 @@ def day2_bonus() :
 
 	playerScore = 0
 	for line in open("input.txt", "r") :
-
+		playerScore += getPlayerScore_bonus(line.split()[0], line.split()[1])
+	print(playerScore)
 
 if __name__ == "__main__" :
 	day2()
+	day2_bonus()
