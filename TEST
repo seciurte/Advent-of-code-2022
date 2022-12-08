@@ -1,4 +1,0 @@
-chercheStagiaire :
-	- doit renvoyer le premier stagiaire qui gagne plus de 1000.
-	- comment savoir si c'est un stagiaire ? Pour etre un stagiaire il
-	  faut etre un salarie, 
